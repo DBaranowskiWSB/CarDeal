@@ -8,6 +8,7 @@ using CarDeal.API.Services.EF.Entities.Cars;
 using CarDeal.API.Services.Repositories.CarRepository.Filters;
 using CarDeal.API.Services.Repositories.CarRepository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using CarDeal.API.Services.Repositories.CarRepository.Interfaces;
 
 namespace CarDeal.API.Services.Repositories.CarRepository
 {
