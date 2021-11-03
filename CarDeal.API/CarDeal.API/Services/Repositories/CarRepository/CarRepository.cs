@@ -30,11 +30,14 @@ namespace CarDeal.API.Services.Repositories.CarRepository
                 if (numberOfRecords is > 0 and < 1000)
                 {
                     adList = await _carDealContext.CarAds
-                        .Include(x=>x.BodyType)
-                        .Include(f=>f.FuelType)
-                        .Include(b=>b.VehicleBrand)
-                        .Include(a=>a.PhotoAddresses)
-                        .TakeLast(numberOfRecords).ToListAsync();
+                        .Include(x => x.BodyType)
+                        .Include(f => f.FuelType)
+                        .Include(b => b.VehicleBrand)
+                        .Include(a => a.PhotoAddresses)
+                        .OrderByDescending(x=>x.Id)
+                        .Take(numberOfRecords)
+                        .ToListAsync();
+                    
                 }
             }
             catch (Exception e)
@@ -66,7 +69,8 @@ namespace CarDeal.API.Services.Repositories.CarRepository
                         .Where(mileage => mileage.Mileage >= filterObject.MinimumMileage && mileage.Mileage <= filterObject.MaximumMileage)
                         .Where(year => year.YearOfProduction >= filterObject.MinYearOfProduction && year.YearOfProduction <= filterObject.MaxYearOfProduction)
                         .Where(fuel => fuel.FuelType.Type == filterObject.FuelType)
-                        .TakeLast(numberOfRecords)
+                        .OrderByDescending(x=>x.Id)
+                        .Take(numberOfRecords)
                         .ToListAsync();
                 }
             }
