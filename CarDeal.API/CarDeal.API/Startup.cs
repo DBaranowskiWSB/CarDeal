@@ -1,3 +1,8 @@
+using AutoMapper;
+using CarDeal.API.Services.AutoMapper;
+using CarDeal.API.Services.EF.DbContexts;
+using CarDeal.API.Services.Repositories.CarRepository;
+using CarDeal.API.Services.Repositories.CarRepository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +25,18 @@ namespace CarDeal.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<CarDealContext>();
+
+            services.AddTransient<ICarRepository, CarRepository>();
+
+            var mapper = AutoMapperConfig.Create();
+            services.AddSingleton(mapper);
+            
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "CarDeal.API", Version = "v1"});
