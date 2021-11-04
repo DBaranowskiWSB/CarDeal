@@ -4,7 +4,7 @@
             <!-- Logo -->
             <div class="branding">
                  <router-link class="header" :to="{name:'Home'}">
-                     <img src="@/assets/logo.png" alt="">
+                     <img src="@/assets/logo2.jpg" alt="CarDeals">
                  </router-link>
             </div>
             <!-- Menu -->
@@ -161,7 +161,8 @@ export default {
           align-items: center;
 
           img {
-            width:45px;
+            width:65px;
+            padding: 5px 0;
           }
                
         }
