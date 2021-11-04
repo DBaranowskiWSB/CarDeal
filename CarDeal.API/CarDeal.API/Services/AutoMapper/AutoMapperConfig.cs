@@ -1,6 +1,7 @@
 using System.Linq;
 using AutoMapper;
 using CarDeal.API.Services.DTO;
+using CarDeal.API.Services.DTO.CarAdDto;
 using CarDeal.API.Services.EF.Entities.Cars;
 
 namespace CarDeal.API.Services.AutoMapper

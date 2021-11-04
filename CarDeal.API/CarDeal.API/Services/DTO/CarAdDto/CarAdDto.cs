@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CarDeal.API.Services.EF.Entities.Cars;
 
-namespace CarDeal.API.Services.DTO
+namespace CarDeal.API.Services.DTO.CarAdDto
 {
     public class CarAdDto
     {

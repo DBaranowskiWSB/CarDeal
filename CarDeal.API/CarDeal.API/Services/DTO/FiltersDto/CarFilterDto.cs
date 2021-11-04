@@ -1,6 +1,6 @@
-namespace CarDeal.API.Services.Repositories.CarRepository.Filters
+namespace CarDeal.API.Services.DTO.FiltersDto
 {
-    public class CarFilter
+    public class CarFilterDto
     {
         public string BodyType { get; set; }
 
