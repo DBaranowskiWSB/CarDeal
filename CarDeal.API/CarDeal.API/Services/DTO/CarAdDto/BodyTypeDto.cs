@@ -1,4 +1,4 @@
-namespace CarDeal.API.Services.DTO
+namespace CarDeal.API.Services.DTO.CarAdDto
 {
     public class BodyTypeDto
     {
